@@ -12,10 +12,10 @@ function App() {
   const [currentDate, setCurrentDate] = useState('');
   const [activeTab, setActiveTab] = useState<string>(CONFIG.PROFILES[0].id);
 
-  // Set current date on mount (and simulate the fixed start date logic if needed)
+  // Set current date on mount
   useEffect(() => {
-    // Hardcoded to 20 Feb 2026 as per user request
-    setCurrentDate('2026-02-20');
+    const today = new Date().toISOString().split('T')[0];
+    setCurrentDate(today);
   }, []);
 
   const handleUpdate = (profileId: string, date: string, dayIndex: number, field: 'fast' | 'tarawih', value: any) => {
